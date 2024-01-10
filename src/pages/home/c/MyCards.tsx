@@ -52,8 +52,7 @@ const MyCards = () => {
               "ownerAddress": publicKey,
               "grouping": [
                 "collection",
-                // "CdTKgXi6DMsRuvkn4CUTMzQdqvBXa5X6YoNrPveS93Gq",
-                "3jiHd3gMyK9LjVFFLkNf2LF2Tw8PxANUyuVNX6sps7Wo"
+                "CdTKgXi6DMsRuvkn4CUTMzQdqvBXa5X6YoNrPveS93Gq",
               ],
               "page": 1, // Starts at 1
               "limit": 1000
