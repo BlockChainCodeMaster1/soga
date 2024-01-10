@@ -126,7 +126,7 @@ const MyCards = () => {
       </section>
       <p>
         After the NFT mint ends, you can burn it <br />
-        within 24 hours and get permission to airdrop $SOGA.
+        within 8 hours and get permission to airdrop $SOGA.
       </p>
       <div className='count'>
         <dl>
