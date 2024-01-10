@@ -6,6 +6,8 @@ export const MEDIA_LINKS = {
 
 export const PUBLIC_OPEN_TIME = 1704805200000
 
+export const BURN_START_TIME = 1704888000000
+
 export const PROOF_API = 'http://175.41.171.194/proof/'
 
 export const WHITELIST_API = '/api/getWhiteListAuth/'

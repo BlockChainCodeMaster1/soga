@@ -36,9 +36,16 @@ const MyCards = () => {
   const [userSogaList, setUserSogaList] = useState<NftDetails[]>([])
   const getUserNft = useCallback(async () => {
     if (!publicKey) return
+    const random = (Math.random() * 1000)
+    let api: string
+    if (Number(random.toFixed(0)) % 2 === 0) {
+      api = 'https://mainnet.helius-rpc.com/?api-key=8559c286-95bc-4327-809f-bdcfaa18e70e'
+    } else {
+      api = 'https://mainnet.helius-rpc.com/?api-key=57ba98a1-39ea-45f7-be09-649b17fced92'
+    }
     try {
       const req = await fetch(
-        'https://mainnet.helius-rpc.com/?api-key=8559c286-95bc-4327-809f-bdcfaa18e70e',
+        api,
         {
           method: 'POST',
           headers: {
@@ -68,6 +75,7 @@ const MyCards = () => {
           list.push(item)
         }
       })
+      console.log('user soga:', list)
       setUserSogaList(list)
     } catch (e) {
       console.log('get user NFT failed!', e)

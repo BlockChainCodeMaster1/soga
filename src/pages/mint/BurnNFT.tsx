@@ -15,8 +15,9 @@ import {
   Connection
 } from '@solana/web3.js'
 import console from 'console'
-import { BURN_NFT_API, PUBLIC_MINT_API, WHITELIST_MINT_API } from '@/config'
+import { BURN_NFT_API, BURN_START_TIME, PUBLIC_MINT_API, WHITELIST_MINT_API } from '@/config'
 import { endpoint } from '@/App'
+import toast from 'react-hot-toast'
 
 type BurnNFTProps = {
   nftAddress: string
@@ -44,6 +45,13 @@ export const BurnNFT = ({ nftAddress }: BurnNFTProps) => {
 
   const burn = useCallback(async (nftAddress: string) => {
     if (!publicKey) return
+
+    const now = new Date().valueOf()
+    if (BURN_START_TIME - now > 0) {
+      toast.error('Burn hasn’t started yet!')
+      return
+    }
+
     setBurning(true)
     const connection = new Connection(endpoint)
     const ta = await connection.getTokenAccountsByOwner(publicKey, {mint: new PublicKey(nftAddress)})
@@ -75,6 +83,7 @@ export const BurnNFT = ({ nftAddress }: BurnNFTProps) => {
     await connection.confirmTransaction(signature, 'confirmed')
     console.log('signature', signature)
     await recordBurn(publicKey.toString(), signature)
+    toast.success('NFT Burned Successfully!')
     setBurning(false)
   }, [])
   return (
