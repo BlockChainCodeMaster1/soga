@@ -64,13 +64,7 @@ const MintNFT = ({ isPublicMint, isWhiteList, isMinted }: PublicMintNFTProps) =>
     if (!publicKey) {
       return
     }
-    if (isPublicMint) {
-      const now = new Date().valueOf()
-      if (PUBLIC_OPEN_TIME - now > 0) {
-        toast.error('Public mint hasn’t started yet!')
-        return
-      }
-    }
+   
     if (!isPublicMint && !isWhiteList && isMinted) {
       toast.error('Your wallet address is not in the whitelist')
       return
@@ -313,7 +307,11 @@ const MintNFT = ({ isPublicMint, isWhiteList, isMinted }: PublicMintNFTProps) =>
   }, [isWhiteList, isPublicMint, isMinted, publicKey])
 
   return (
-    <button onClick={mintNFT} disabled={(!publicKey || minting) || (!isPublicMint && !isWhiteList) || isMinted}>
+    <button
+      onClick={mintNFT}
+      // disabled={(!publicKey || minting) || (!isPublicMint && !isWhiteList) || isMinted}
+      disabled={true}
+    >
       {buttonText}
     </button>
   )
