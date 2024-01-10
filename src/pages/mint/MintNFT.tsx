@@ -20,15 +20,23 @@ import { Buffer } from 'buffer'
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import * as console from 'console'
 import toast from 'react-hot-toast'
-import { PUBLIC_MINT_API, PUBLIC_OPEN_TIME, WHITELIST_MINT_API } from '@/config'
+import { PUBLIC_MINT_API, WHITELIST_MINT_API } from '@/config'
 
-const CONTRACT_PROGRAM_ID = new PublicKey('52WhvjtvnJpUJhbRqHDrXM7YX7CWPmMxeiWaf2t1rbWn')
-const config_info = new PublicKey('7vNH4bvetujckcf9s4tAXnGtiRyHbEhwoEN4JCJH7jBW')
-export const collection_mint = new PublicKey('CdTKgXi6DMsRuvkn4CUTMzQdqvBXa5X6YoNrPveS93Gq')
-const collection_metadata = new PublicKey('Ee44Gyempkhpt7WHLHbtPBncuEH7EgPv1NjyYjYMzEC7')
-const collection_edition = new PublicKey('9bTu8GqSRQTU3YC6iYGtvFWVBxPHYtQRKdLKAX99QGPU')
-const collection_authority_record = new PublicKey('2HbxCayjnysn6NWpn2w42hxyumRW7H1b3xzYrYM7PWRb')
-const pda_creator = new PublicKey('B6cFnaBEL2DExFbEFwkqEwhsLbR3JLx9ENRh4fU4sgJ8')
+const CONTRACT_PROGRAM_ID = new PublicKey('4Vm77PDeH3i9nLhfkAjWaSayTFaGCu6fnW5Jo2qCjg4e')
+const config_info = new PublicKey('13Z64WtxpYvexwSdicwgzj9iT3ustcpSSCF2nVoCF5o1')
+export const collection_mint = new PublicKey('3jiHd3gMyK9LjVFFLkNf2LF2Tw8PxANUyuVNX6sps7Wo')
+const collection_metadata = new PublicKey('DEt6GjyEndUzZNUyRrp1AXFhoRfzp1hCnfhhmEw9bawn')
+const collection_edition = new PublicKey('HUUnP1YWWnwqe8oXryvFSXrReBK9ncxp9Dy6QKtQHeLz')
+const collection_authority_record = new PublicKey('GUmS4sjty1b7tNW1zYbbWEDFKxviygspnyqct8TpitbZ')
+const pda_creator = new PublicKey('81JPvLiA5cWgKbwAs1DgufvPTZqfCgeEpmCKSWtPXqoW')
+//
+// const CONTRACT_PROGRAM_ID = new PublicKey('52WhvjtvnJpUJhbRqHDrXM7YX7CWPmMxeiWaf2t1rbWn')
+// const config_info = new PublicKey('7vNH4bvetujckcf9s4tAXnGtiRyHbEhwoEN4JCJH7jBW')
+// export const collection_mint = new PublicKey('CdTKgXi6DMsRuvkn4CUTMzQdqvBXa5X6YoNrPveS93Gq')
+// const collection_metadata = new PublicKey('Ee44Gyempkhpt7WHLHbtPBncuEH7EgPv1NjyYjYMzEC7')
+// const collection_edition = new PublicKey('9bTu8GqSRQTU3YC6iYGtvFWVBxPHYtQRKdLKAX99QGPU')
+// const collection_authority_record = new PublicKey('2HbxCayjnysn6NWpn2w42hxyumRW7H1b3xzYrYM7PWRb')
+// const pda_creator = new PublicKey('B6cFnaBEL2DExFbEFwkqEwhsLbR3JLx9ENRh4fU4sgJ8')
 const charge_address = new PublicKey('9ppiEsLybEazCHHaM1y2AcpEPgHX82aHPZD2E5LuL4ZQ')
 const metadata_program = new PublicKey('metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt518x1s')
 
@@ -64,7 +72,7 @@ const MintNFT = ({ isPublicMint, isWhiteList, isMinted }: PublicMintNFTProps) =>
     if (!publicKey) {
       return
     }
-   
+
     if (!isPublicMint && !isWhiteList && isMinted) {
       toast.error('Your wallet address is not in the whitelist')
       return
@@ -309,8 +317,8 @@ const MintNFT = ({ isPublicMint, isWhiteList, isMinted }: PublicMintNFTProps) =>
   return (
     <button
       onClick={mintNFT}
-      // disabled={(!publicKey || minting) || (!isPublicMint && !isWhiteList) || isMinted}
-      disabled={true}
+      disabled={(!publicKey || minting) || (!isPublicMint && !isWhiteList) || isMinted}
+      // disabled={true}
     >
       {buttonText}
     </button>
