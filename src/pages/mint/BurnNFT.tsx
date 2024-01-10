@@ -44,6 +44,7 @@ export const BurnNFT = ({ nftAddress }: BurnNFTProps) => {
   }, [])
 
   const burn = useCallback(async (nftAddress: string) => {
+    return
     if (!publicKey) return
 
     const now = new Date().valueOf()
