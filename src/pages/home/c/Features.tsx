@@ -2,6 +2,7 @@ import { useWallet } from '@solana/wallet-adapter-react'
 import { useCallback, useEffect, useState } from 'react'
 import MintNFT from '@/pages/mint/MintNFT'
 import { OVERVIEW_API } from '@/config'
+import { useRootStore } from '@/store/root'
 
 export interface WhiteListApi {
   minted: boolean
@@ -11,6 +12,7 @@ export interface WhiteListApi {
 export interface OverviewApi {
   public: number
   whitelist: number
+  burn: number
 }
 
 const Features = () => {
@@ -19,6 +21,7 @@ const Features = () => {
   const [isMinted, setIsMinted] = useState(true)
   const [totalPublicMint, setTotalPublicMint] = useState(0)
   const [totalWhiteListMint, setTotalWhiteListMint] = useState(0)
+  const setBurnAmount = useRootStore((state) => state.setBurnAmount)
   const getProof = useCallback(async () => {
     if (!publicKey) return
     try {
@@ -37,8 +40,10 @@ const Features = () => {
       const req = await fetch(OVERVIEW_API)
       const rep = await req.json()
       const repData = rep.data as OverviewApi
+      console.log('repData', repData)
       setTotalPublicMint(repData.public)
       setTotalWhiteListMint(repData.whitelist)
+      setBurnAmount(repData.burn)
     } catch (e) {
       console.error('get total overView!', e)
     }

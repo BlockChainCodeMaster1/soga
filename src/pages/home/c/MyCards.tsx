@@ -8,6 +8,7 @@ import { useWallet } from '@solana/wallet-adapter-react'
 import { PublicKey } from '@solana/web3.js'
 import { collection_mint } from '@/pages/mint/MintNFT'
 import { BurnNFT } from '@/pages/mint/BurnNFT'
+import { useRootStore } from '@/store/root'
 
 interface NftDetails {
   authorities: any
@@ -30,6 +31,7 @@ type NFTContent = {
 }
 
 const MyCards = () => {
+  const burnAmount = useRootStore((state) => state.burnAmount)
   const { publicKey } = useWallet()
   const [userSogaList, setUserSogaList] = useState<NftDetails[]>([])
   const getUserNft = useCallback(async () => {
@@ -127,7 +129,7 @@ const MyCards = () => {
           </dd>
           <dd>
             <span>Burn</span>
-            <em>0</em>
+            <em>{burnAmount}</em>
           </dd>
         </dl>
       </div>
