@@ -15,3 +15,5 @@ export const WHITELIST_MINT_API = '/api/whiteListMintNFT'
 export const PUBLIC_MINT_API = '/api/publicMintNFT'
 
 export const OVERVIEW_API = '/api/getTotalData'
+
+export const BURN_NFT_API = '/api/burnNFT'

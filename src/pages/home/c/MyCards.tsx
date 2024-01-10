@@ -7,6 +7,7 @@ import { useCallback, useEffect, useState } from 'react'
 import { useWallet } from '@solana/wallet-adapter-react'
 import { PublicKey } from '@solana/web3.js'
 import { collection_mint } from '@/pages/mint/MintNFT'
+import { BurnNFT } from '@/pages/mint/BurnNFT'
 
 interface NftDetails {
   authorities: any
@@ -49,7 +50,8 @@ const MyCards = () => {
               "ownerAddress": publicKey,
               "grouping": [
                 "collection",
-                "3jiHd3gMyK9LjVFFLkNf2LF2Tw8PxANUyuVNX6sps7Wo"
+                "CdTKgXi6DMsRuvkn4CUTMzQdqvBXa5X6YoNrPveS93Gq",
+                // "3jiHd3gMyK9LjVFFLkNf2LF2Tw8PxANUyuVNX6sps7Wo"
               ],
               "page": 1, // Starts at 1
               "limit": 1000
@@ -75,7 +77,7 @@ const MyCards = () => {
     getUserNft().then()
     setInterval(() => {
       getUserNft().then()
-    }, 15000)
+    }, 30000)
   }, [getUserNft])
 
   return (
@@ -92,7 +94,7 @@ const MyCards = () => {
                   <footer>
                     <em>{userSogaList[i].content.metadata.name}</em>
                     {/*<em>#000000</em>*/}
-                    {/*<button>BURN</button>*/}
+                    <BurnNFT nftAddress={userSogaList[i].id} />
                   </footer>
                 </div>
               </div>
@@ -105,6 +107,7 @@ const MyCards = () => {
                   <VideoPlayer video={card} />
                   <footer>
                     <em>{userSogaList[i].content.metadata.name}</em>
+                    <BurnNFT nftAddress={userSogaList[i].id} />
                     {/*<button>BURN</button>*/}
                   </footer>
                 </div>
