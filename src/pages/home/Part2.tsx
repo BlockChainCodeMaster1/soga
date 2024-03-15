@@ -1,4 +1,4 @@
-import banner2 from '@/assets/banner2.png'
+import banner2 from '@/assets/ponts-right.png'
 import Features from '@/pages/home/c/Features'
 const Part2 = () => {
   return (

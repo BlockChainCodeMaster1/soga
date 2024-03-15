@@ -11,7 +11,7 @@ function Index() {
       <Header />
       <Slogan />
       <Part2 />
-      <Part3 />
+      {/* <Part3 /> */}
       <Footer />
     </div>
   )

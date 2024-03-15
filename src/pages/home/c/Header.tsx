@@ -1,4 +1,4 @@
-import sogaIcon from '@/assets/soga-icon.svg'
+import sogaIcon from '@/assets/logo.png'
 import sogaLogo from '@/assets/soga-logo.svg'
 
 import Connect from '@/components/Modals/Connect'
@@ -10,7 +10,7 @@ const Header = () => {
     <div className='soga-header'>
       <div className='logo'>
         <img src={sogaIcon} alt='soga' />
-        <img src={sogaLogo} alt='soga' />
+        {/* <img src={sogaLogo} alt='soga' /> */}
       </div>
       {!isMobile && (<nav>
         <NavLink to='/'>Home</NavLink>

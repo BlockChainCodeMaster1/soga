@@ -68,7 +68,7 @@ const Features = () => {
         the Future
       </p>
 
-      <section>
+      {/* <section>
         <div>
           <span>Whitelist</span>
           <span>
@@ -97,7 +97,7 @@ const Features = () => {
         </ul>
         <MintNFT isPublicMint={false} isWhiteList={proof} isMinted={isMinted} />
         <small>Max 1 mint per wallet</small>
-      </section>
+      </section> */}
 
       <section>
         <div>
